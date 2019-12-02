@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:cardscontrols="clr-namespace:PanCardView.Controls;assembly=PanCardView"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DemoApp.MainPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <ffimageloading:CachedImage Grid.RowSpan="2" Source="{Binding CurrentImage}" Opacity="0.5" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Aspect="AspectFill"/>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+            <cards:CarouselView Grid.RowSpan="2" Margin="0" ItemsSource="{Binding CarouselPages}" SelectedIndex="{Binding CarouselPosition, Mode=TwoWay}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <cards:CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0" Padding="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="150"/>
+                            </Grid.RowDefinitions>
+                            <Frame Grid.Row="0" BorderColor="Orange" CornerRadius="10" BackgroundColor="White" Margin="20,0,20,0" HasShadow="True" Padding="10" WidthRequest="500" HorizontalOptions="Center" VerticalOptions="Center">
+                                <Frame.Content>
+                                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Label Text="{Binding Title}" TextColor="Black" FontSize="Medium" HorizontalOptions="Center" VerticalTextAlignment="Center"/>
+                                        <Label Text="{Binding Text}" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </StackLayout>
+                                </Frame.Content>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </cards:CarouselView.ItemTemplate>
+                <cardscontrols:LeftArrowControl/>
+                <cardscontrols:RightArrowControl/>
+                <cardscontrols:IndicatorsControl/>
+            </cards:CarouselView>
+            <Frame Grid.Row="1" CornerRadius="10" BorderColor="Orange" BackgroundColor="White" Margin="20,0" Padding="10" WidthRequest="300" HeightRequest="90" HorizontalOptions="Center" VerticalOptions="Start">
+                <Frame.Content>
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="{Binding Message}" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="{Binding ShowMessage}" />
+                    </StackLayout>
+                </Frame.Content>
+            </Frame>
+        </Grid>
+    </Grid>
+</ContentPage>

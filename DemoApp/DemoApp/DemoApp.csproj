@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\loginComponents.jpg" />
+    <None Remove="Images\loginFirst.jpg" />
+    <None Remove="Images\loginGarage.jpg" />
+    <None Remove="Images\loginMaintenance.jpg" />
+    <None Remove="Images\loginSetups.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CardsView" Version="2.3.8" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.9.961" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\loginComponents.jpg" />
+    <EmbeddedResource Include="Images\loginFirst.jpg" />
+    <EmbeddedResource Include="Images\loginGarage.jpg" />
+    <EmbeddedResource Include="Images\loginMaintenance.jpg" />
+    <EmbeddedResource Include="Images\loginSetups.jpg" />
+  </ItemGroup>
+</Project>
